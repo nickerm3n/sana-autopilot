@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Sana Autopilot",
+  "version": "1.0.0",
+  "description": "Auto-advances Sana.ai course lessons and answers Knowledge check quizzes via the Claude API.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://openai-partneru.sana.ai/*",
+    "https://api.anthropic.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://openai-partneru.sana.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

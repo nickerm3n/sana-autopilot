@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sana Autopilot</title>
+<style>
+  body { font-family: system-ui, sans-serif; width: 340px; padding: 12px; font-size: 13px; }
+  h1 { font-size: 14px; margin: 0 0 8px; }
+  label { display: block; margin-top: 10px; font-weight: 600; }
+  input[type="password"], input[type="text"] { width: 100%; box-sizing: border-box; padding: 6px; margin-top: 4px; }
+  .row { display: flex; gap: 8px; margin-top: 10px; }
+  button { flex: 1; padding: 6px 10px; cursor: pointer; }
+  #status { margin-top: 8px; font-weight: 600; }
+  #status.running { color: #1a7f37; }
+  #status.stopped { color: #666; }
+  #warning { margin-top: 6px; color: #b42318; font-weight: 600; display: none; }
+  #warning.visible { display: block; }
+  #courses { margin-top: 8px; max-height: 140px; overflow-y: auto; }
+  #courses button { display: block; width: 100%; text-align: left; margin-bottom: 4px; }
+  #log { margin-top: 10px; max-height: 160px; overflow-y: auto; background: #f6f6f6; padding: 6px; font-family: monospace; font-size: 11px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+  <h1>Sana Autopilot</h1>
+
+  <label for="apiKey">Anthropic API ключ</label>
+  <input id="apiKey" type="password" placeholder="sk-ant-..." />
+
+  <div id="status" class="stopped">Зупинено</div>
+  <div id="warning"></div>
+  <div class="row">
+    <button id="toggleBtn">Запустити на цій сторінці</button>
+    <button id="scanBtn">Сканувати бібліотеку</button>
+  </div>
+
+  <div id="courses"></div>
+  <div id="log"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
